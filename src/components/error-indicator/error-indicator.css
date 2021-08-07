@@ -1,0 +1,18 @@
+.error-indicator{
+    color: #f8b26a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.deathStar{
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+span {
+    text-align: center;
+}

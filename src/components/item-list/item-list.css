@@ -1,0 +1,8 @@
+.item-name:hover {
+    background-color: #444444;
+    cursor: pointer;
+}
+
+.item-list{
+    margin-bottom: 20px;
+}
