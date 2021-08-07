@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Spiner from "../spiner/spiner";
 
-const withData = (getData,View) => {
+const withData = (View,getData) => {
     return class extends Component {
         state = {
             data: null

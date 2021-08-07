@@ -72,15 +72,11 @@ export default class App extends Component {
             <div className='container'>
                 <Header/>
 
-                <ItemList getData={getAllPeople}>
-                    {({name}) => <span>{name}</span>}}
-                </ItemList>
-                <ItemList getData={getAllPlanets}>
-                    {({name}) => <span>{name}</span>}}
-                </ItemList>
-                {/*<PersonList>*/}
-                {/*    { ({name}) => <span>{name}</span>}*/}
-                {/*</PersonList>*/}
+                <PersonList >
+                    {({name}) => <span>{name}</span>}
+                </PersonList>
+
+
 
             </div>
         )
