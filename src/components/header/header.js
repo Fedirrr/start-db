@@ -1,27 +1,33 @@
 import React from 'react'
-
+import {Link} from "react-router-dom";
 import '../header/header.css'
 
 const Header = () => {
     return (
         <div className='header d-flex'>
             <h3>
-                <a className='headerMenu logoName' href="#">
+                <Link to='/' className='headerMenu logoName'>
                     Star DB
-                </a>
+                </Link>
             </h3>
             <ul className='d-flex'>
                 <li>
-                    <a className='headerMenu' href="#">People</a>
+                    <Link to='/people/' className='headerMenu'>People</Link>
                 </li>
                 <li>
-                    <a className='headerMenu' href="#">Planets</a>
+                    <Link to='/planets/' className='headerMenu'>Planets</Link>
                 </li>
                 <li>
-                    <a className='headerMenu' href="#">Starships</a>
+                    <Link to='/starships/' className='headerMenu'>Starships</Link>
+                </li>
+                <li>
+                    <Link to='/login'>Login</Link>
+                </li>
+                <li>
+                    <Link to='/secret'>Secret</Link>
                 </li>
             </ul>
         </div>
     )
 }
- export default Header
+export default Header

@@ -1,19 +1,31 @@
 import React, {Component} from 'react'
-import './random-planet.css'
 import SwapiService from "../../srvices/swapi-services";
 import Spiner from "../spiner/spiner";
 import ErrorIndicator from "../error-indicator/error-indicator";
+import PropTypes from 'prop-types'
+import './random-planet.css'
+
 
 export default class RandomPlanet extends Component {
+
+    static defaultProps = {
+        updateInterval: 10000
+    }
+    static propTypes = {
+        updateInterval: PropTypes.number.isRequired
+    }
+
     swapiService = new SwapiService();
 
     state = {
         planet: {},
         loading: true,
     }
+
     componentDidMount() {
+        const {updateInterval} = this.props
         this.updatePlanet()
-        this.interval = setInterval(this.updatePlanet,5000)
+        this.interval = setInterval(this.updatePlanet, updateInterval)
     }
 
     componentWillMount() {
@@ -24,10 +36,9 @@ export default class RandomPlanet extends Component {
         this.setState({
             planet,
             loading: false,
-            error:false,
+            error: false,
         })
     }
-
 
 
     onError = (err) => {
@@ -36,8 +47,8 @@ export default class RandomPlanet extends Component {
             loading: false,
         })
     }
-
     updatePlanet = () => {
+
         const id = Math.floor(Math.random() * 17) + 2;
         this.swapiService
             .getPlanet(id)
@@ -61,16 +72,18 @@ export default class RandomPlanet extends Component {
 
         )
     }
-}
 
-const PlanetPreview = ( { planet } ) => {
+}
+const PlanetPreview = ({planet}) => {
     const {
         id, name, diameter,
-        population, rotationPeriod } = planet;
+        population, rotationPeriod
+    } = planet;
 
     return (
         <React.Fragment>
-            <img className='planet-img' src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}/>
+            <img className='planet-img' src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
+                 alt='planets'/>
             <div className='random-info'>
                 <h4>
                     {name}

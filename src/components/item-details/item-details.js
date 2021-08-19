@@ -1,9 +1,5 @@
 import React, {Component} from 'react'
 import './item-details.css'
-import SwapiService from "../../srvices/swapi-services";
-import ErrorButton from "../error-button/error-button";
-
-
 
 const Record = ( { item, field, label}) => {
     return (
@@ -23,7 +19,6 @@ export {
 
 export default class ItemDetails extends Component {
 
-    swapiService = new SwapiService()
 
     state = {
         person: null,
@@ -61,10 +56,7 @@ export default class ItemDetails extends Component {
             return <span> Select a person from a list</span>
         }
 
-        const {
-            id, name, gender,
-            birthYear, eyeColor,
-        } = item
+        const {name} = item
 
         return (
             <div className='person-details cards'>
